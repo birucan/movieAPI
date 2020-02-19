@@ -14,10 +14,10 @@ ActiveRecord::Schema.define(version: 2020_02_17_195619) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
-    t.text "content"
-    t.string "slug"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.text "overview"
+    t.integer "vote_count"
+    t.string "poster_path"
+    t.datetime "release_date"
   end
 
 end

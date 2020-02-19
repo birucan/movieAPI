@@ -1,31 +1,32 @@
 class Api::V1::ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
   # GET /articles
 
   def index
-  
+
     @articles = Article.all
-	
-	render json: @aritcles
-	
+
+    render json: @articles
+
   end
 
   # GET /articles/1
 
   def show
-  
-  render json: @aritcles
-  
+
+   render json: @articles
+
   end
 
   # POST /articles
 
   def create
-  
+
     @article = Article.new(article_params)
 
-    
+
       if @article.save
         render json: @article, status: :created, location:
         api_v1_article_url(@article)
@@ -47,12 +48,11 @@ class Api::V1::ArticlesController < ApplicationController
   end
 
   # DELETE /articles/1
-  
+
   def destroy
-    @article.destroy
-    
+
       @article.destroy
-    
+
   end
 
   private
@@ -63,6 +63,7 @@ class Api::V1::ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :content, :slug)
+
+      params.require(:article).permit(:title, :overview, :vote_count, :poster_path, :release_date)
     end
 end
