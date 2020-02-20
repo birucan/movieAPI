@@ -1,0 +1,15 @@
+.movie{
+border-radius: 15px 50px;
+background: #caf4e2;
+color: #3e3e3e;
+padding: 20px 20px 20px 20px;
+width: auto;
+height: auto;
+vertical-align: top;
+display: inline-block;
+text-align: center;
+}
+space{
+  height: 20px;
+  padding: 20px 20px 20px 20px;
+}
